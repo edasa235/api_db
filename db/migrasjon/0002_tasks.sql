@@ -1,3 +1,5 @@
+create extension if not exists pgcrypto;
+
 create table tasks (
                        id uuid not null default gen_random_uuid(),
                        title text not null,
