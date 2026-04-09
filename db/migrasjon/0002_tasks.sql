@@ -1,3 +1,4 @@
+BEGIN;
 create extension if not exists pgcrypto;
 
 create table tasks (
@@ -11,9 +12,10 @@ create table tasks (
 
                        constraint tasks_pkey primary key (id),
                        constraint tasks_assignee_id_fk foreign key (assignee_id) references users(id) on delete restrict,
-                       constraint status_check check (status in ('BACKLOG', 'READY', 'IN_PROGRESS', 'IN_REVIEW', 'IN_TESTING', 'COMPLETED'))
+                       constraint status_check check (status in ('BACKLOG', 'READY', 'IN_PROGRESS', 'IN_REVIEW', 'IN_TESTING', 'COMPLETED')),
                        constraint completed_at_check check ((status = 'COMPLETED' and completed_at is not null) or (status != 'COMPLETED' and completed_at is null)
-);
+));
 
 create index tasks_assignee_id_idx on tasks(assignee_id);
 create index tasks_status_idx on tasks(status);
+COMMIT ;
