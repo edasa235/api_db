@@ -11,3 +11,11 @@ get:
                 type: array
                 items:
                 $ref: '../schema/task.yml'
+    "401":
+        $ref: ../schema/error.yml
+    "403":
+        $ref: ../schema/error.yml
+    "404":
+        $ref: ../schema/error.yml
+    "400":
+        $ref: ../schema/error.yml

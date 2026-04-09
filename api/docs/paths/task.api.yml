@@ -1,5 +1,43 @@
+post:
+  operationId: createTask
+  summary: Create a new task
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - title
+            - status
+          properties:
+            title:
+              type: string
+              example: "New Task"
+            description:
+              type: string
+              example: "This is a new task."
+            status:
+              type: string
+              enum: [ BACKLOG, READY, IN_PROGRESS, IN_REVIEW, IN_TESTING, COMPLETED ]
+              example: BACKLOG
+            assignee_id:
+              type: string
+              example: "1"
+  responses:
+    "201":
+      description: Created
+      content:
+        application/json:
+          schema:
+            $ref: '../schema/task.yml'
+    "400":
+      description: Bad request (invalid input)
+    "401":
+      description: Unauthorized
+    "500":
+      description: Internal server error
 get:
-  /task{id}:
     operationId: getTask
     summary: Get a task by ID
     parameters:
@@ -16,80 +54,56 @@ get:
           application/json:
             schema:
               $ref: '../schema/task.yml'
-posts:
-  /task:
-    operationId: createTask
-    summary: Create a new task
-    requestBody:
-    required: true
-    content:
-      application/json:
-      schema:
-        type: object
-        required:
-          - title
-          - status
-        properties:
-        title:
-          type: string
-          example: "New Task"
-        description:
-          type: string
-          example: "This is a new task."
-        status:
-          type: string
-          enum: [ BACKLOG, READY, IN_REVIEW, IN_TESTING, COMPLETED ]
-          example: BACKLOG
-        assignee_id:
-          type: string
-          example: "1"
-    responses:
-    "201":
-      description: Created
-      content:
-      application/json:
-        schema:
-        $ref: '../schema/task.yml'
+      "404":
+        description: Task not found
+      "401":
+        description: Unauthorized
+      "500":
+        description: Internal server error
+
 put:
-  /task{id}:
     operationId: updateTask
     summary: Update a task by ID
     parameters:
-    name: id
-          in: path
-          required: true
-          schema:
+      - name: id
+        in: path
+        required: true
+        schema:
           type: string
           example: "1"
     requestBody:
-    required: true
-    content:
-      application/json:
-      schema:
-        type: object
-        properties:
-        title:
-          type: string
-          example: "Updated Task"
-        description:
-          type: string
-          example: "This is an updated task."
-        status:
-          type: string
-          enum: [ BACKLOG, READY, IN_REVIEW, IN_TESTING, COMPLETED ]
-          example: READY
-        assignee_id:
-          type: string
-          example: "2"
-    responses:
-    "200":
-      description: OK
+      required: true
       content:
-      application/json:
-        schema:
-        $ref: '../schema/task.yml'
+        application/json:
+          schema:
+            type: object
+            properties:
+              title:
+                type: string
+              description:
+                type: string
+              status:
+                type: string
+                enum: [ BACKLOG, READY, IN_PROGRESS, IN_REVIEW, IN_TESTING, COMPLETED ]
+              assignee_id:
+                type: string
+    responses:
+      "200":
+        description: Updated
+        content:
+          application/json:
+            schema:
+              $ref: '../schema/task.yml'
+      "400":
+        description: Bad request
+      "404":
+        description: Task not found
+      "401":
+        description: Unauthorized
+      "500":
+        description: Internal server error
+
 delete:
-  /task{id}:
     operationId: deleteTask
     summary: Delete a task by ID
     parameters:
@@ -102,3 +116,9 @@ delete:
     responses:
       "204":
         description: No Content
+      "404":
+        description: Task not found
+      "401":
+        description: Unauthorized
+      "500":
+        description: Internal server error
