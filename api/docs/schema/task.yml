@@ -1,26 +1,27 @@
 type: object
 required:
-  -id
-  -title
-  -status
+  - id
+  - title
+  - status
 properties:
   id:
-    type: text
+    type: string
     readOnly: true
-    example: 1
+    example: "1"
   title:
-    type: text
+    type: string
+    format: uuid
     example: "Task 1"
   description:
-    type: text
+    type: string
     example: "This is the first task."
   status:
-    type: text
-    enum: [ BACKLOG, READY, IN_REVIEW, IN_TESTING, completed ]
+    type: string
+    enum: [ BACKLOG, READY, IN_REVIEW, IN_TESTING, COMPLETED ]
     example: BACKLOG
   assignee_id:
-    type: text
-    example: 1
+    type: string
+    example: "1"
   created_at:
     type: string
     format: date-time

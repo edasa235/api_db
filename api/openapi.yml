@@ -1,6 +1,4 @@
 openapi: 3.1.1
-security:
-  - BearerAuth: []
 info:
   title: "REST API"
   version: 0.0.0
@@ -9,9 +7,19 @@ info:
     identifier: Proprietary
 servers:
   - url: /api
+
+security:
+  - BearerAuth: []
+
 paths:
   /tasks:
     $ref: './docs/paths/tasks.api.yml'
-schemas:
+components:
+  schemas:
     Task:
-        $ref: './docs/schema/task.yml'
+      $ref: './docs/schema/task.yml'
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
