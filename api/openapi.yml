@@ -1,0 +1,17 @@
+openapi: 3.1.1
+security:
+  - BearerAuth: []
+info:
+  title: "REST API"
+  version: 0.0.0
+  license:
+    name: Proprietary
+    identifier: Proprietary
+servers:
+  - url: /api
+paths:
+  /tasks:
+    $ref: './docs/paths/tasks.api.yml'
+schemas:
+    Task:
+        $ref: './docs/schema/task.yml'

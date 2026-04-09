@@ -1,0 +1,33 @@
+type: object
+required:
+  -id
+  -title
+  -status
+properties:
+  id:
+    type: text
+    readOnly: true
+    example: 1
+  title:
+    type: text
+    example: "Task 1"
+  description:
+    type: text
+    example: "This is the first task."
+  status:
+    type: text
+    enum: [ BACKLOG, READY, IN_REVIEW, IN_TESTING, completed ]
+    example: BACKLOG
+  assignee_id:
+    type: text
+    example: 1
+  created_at:
+    type: string
+    format: date-time
+    readOnly: true
+    example: "2024-01-01T12:00:00Z"
+  completed_at:
+    type: string
+    format: date-time
+    readOnly: true
+    example: "2024-01-02T12:00:00Z"
