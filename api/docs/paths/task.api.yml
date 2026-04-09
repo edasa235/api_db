@@ -1,0 +1,104 @@
+get:
+  /task{id}:
+    operationId: getTask
+    summary: Get a task by ID
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: "1"
+    responses:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              $ref: '../schema/task.yml'
+posts:
+  /task:
+    operationId: createTask
+    summary: Create a new task
+    requestBody:
+    required: true
+    content:
+      application/json:
+      schema:
+        type: object
+        required:
+          - title
+          - status
+        properties:
+        title:
+          type: string
+          example: "New Task"
+        description:
+          type: string
+          example: "This is a new task."
+        status:
+          type: string
+          enum: [ BACKLOG, READY, IN_REVIEW, IN_TESTING, COMPLETED ]
+          example: BACKLOG
+        assignee_id:
+          type: string
+          example: "1"
+    responses:
+    "201":
+      description: Created
+      content:
+      application/json:
+        schema:
+        $ref: '../schema/task.yml'
+put:
+  /task{id}:
+    operationId: updateTask
+    summary: Update a task by ID
+    parameters:
+    name: id
+          in: path
+          required: true
+          schema:
+          type: string
+          example: "1"
+    requestBody:
+    required: true
+    content:
+      application/json:
+      schema:
+        type: object
+        properties:
+        title:
+          type: string
+          example: "Updated Task"
+        description:
+          type: string
+          example: "This is an updated task."
+        status:
+          type: string
+          enum: [ BACKLOG, READY, IN_REVIEW, IN_TESTING, COMPLETED ]
+          example: READY
+        assignee_id:
+          type: string
+          example: "2"
+    responses:
+    "200":
+      description: OK
+      content:
+      application/json:
+        schema:
+        $ref: '../schema/task.yml'
+delete:
+  /task{id}:
+    operationId: deleteTask
+    summary: Delete a task by ID
+    parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          example: "1"
+    responses:
+      "204":
+        description: No Content
