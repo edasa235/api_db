@@ -1,10 +1,11 @@
 openapi: 3.1.1
 info:
-  title: "REST API"
+  title: REST API
   version: 0.0.0
   license:
     name: Proprietary
     identifier: Proprietary
+
 servers:
   - url: /api
 
@@ -14,16 +15,22 @@ security:
 paths:
   /tasks:
     $ref: './docs/paths/tasks.api.yml'
-  /task:
+  /tasks/{id}:
     $ref: './docs/paths/task.api.yml'
+
 components:
   schemas:
     Task:
       $ref: './docs/schema/task.yml'
-    Error:
-        $ref: './docs/schema/error.yml'
-    pagination:
-      $ref: './docs/pagination/pagination_schema.yml'
+  responses:
+    Error400:
+      $ref: './docs/schema/error.yml'
+    Error401:
+      $ref: './docs/schema/error.yml'
+    Error403:
+      $ref: './docs/schema/error.yml'
+    Error404:
+      $ref: './docs/schema/error.yml'
   securitySchemes:
     BearerAuth:
       type: http

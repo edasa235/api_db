@@ -1,3 +1,23 @@
+get:
+  operationId: getTask
+  summary: Get a task by ID
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        example: "1"
+  responses:
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            $ref: '../schema/task.yml'
+    '404':
+      $ref: '../../openapi.yml#/components/responses/Error404'
+
 post:
   operationId: createTask
   summary: Create a new task
@@ -7,9 +27,7 @@ post:
       application/json:
         schema:
           type: object
-          required:
-            - title
-            - status
+          required: [ title, status ]
           properties:
             title:
               type: string
@@ -25,100 +43,61 @@ post:
               type: string
               example: "1"
   responses:
-    "201":
+    '201':
       description: Created
       content:
         application/json:
           schema:
             $ref: '../schema/task.yml'
-    "400":
-      description: Bad request (invalid input)
-    "401":
-      description: Unauthorized
-    "500":
-      description: Internal server error
-get:
-    operationId: getTask
-    summary: Get a task by ID
-    parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-          example: "1"
-    responses:
-      "200":
-        description: OK
-        content:
-          application/json:
-            schema:
-              $ref: '../schema/task.yml'
-      "404":
-        description: Task not found
-      "401":
-        description: Unauthorized
-      "500":
-        description: Internal server error
 
 put:
-    operationId: updateTask
-    summary: Update a task by ID
-    parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-          example: "1"
-    requestBody:
+  operationId: updateTask
+  summary: Update a task by ID
+  parameters:
+    - name: id
+      in: path
       required: true
+      schema:
+        type: string
+        example: "1"
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            title:
+              type: string
+              example: "Updated Task"
+            description:
+              type: string
+              example: "This is an updated task."
+            status:
+              type: string
+              enum: [ BACKLOG, READY, IN_PROGRESS, IN_REVIEW, IN_TESTING, COMPLETED ]
+              example: READY
+            assignee_id:
+              type: string
+              example: "2"
+  responses:
+    '200':
+      description: OK
       content:
         application/json:
           schema:
-            type: object
-            properties:
-              title:
-                type: string
-              description:
-                type: string
-              status:
-                type: string
-                enum: [ BACKLOG, READY, IN_PROGRESS, IN_REVIEW, IN_TESTING, COMPLETED ]
-              assignee_id:
-                type: string
-    responses:
-      "200":
-        description: Updated
-        content:
-          application/json:
-            schema:
-              $ref: '../schema/task.yml'
-      "400":
-        description: Bad request
-      "404":
-        description: Task not found
-      "401":
-        description: Unauthorized
-      "500":
-        description: Internal server error
+            $ref: '../schema/task.yml'
 
 delete:
-    operationId: deleteTask
-    summary: Delete a task by ID
-    parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: string
-          example: "1"
-    responses:
-      "204":
-        description: No Content
-      "404":
-        description: Task not found
-      "401":
-        description: Unauthorized
-      "500":
-        description: Internal server error
+  operationId: deleteTask
+  summary: Delete a task by ID
+  parameters:
+    - name: id
+      in: path
+      required: true
+      schema:
+        type: string
+        example: "1"
+  responses:
+    '204':
+      description: No Content

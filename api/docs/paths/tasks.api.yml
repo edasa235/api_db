@@ -1,21 +1,20 @@
 get:
-  /tasks:
   operationId: getTasks
   summary: Get all tasks
   responses:
-    "200":
-        description: OK
-        content:
-            application/json:
-            schema:
-                type: array
-                items:
-                $ref: '../schema/task.yml'
-    "401":
-        $ref: ../schema/error.yml
-    "403":
-        $ref: ../schema/error.yml
-    "404":
-        $ref: ../schema/error.yml
-    "400":
-        $ref: ../schema/error.yml
+    '200':
+      description: OK
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '../schema/task.yml'
+    '400':
+      $ref: '../../openapi.yml#/components/responses/Error400'
+    '401':
+      $ref: '../../openapi.yml#/components/responses/Error401'
+    '403':
+      $ref: '../../openapi.yml#/components/responses/Error403'
+    '404':
+      $ref: '../../openapi.yml#/components/responses/Error404'

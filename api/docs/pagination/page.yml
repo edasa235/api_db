@@ -1,8 +1,8 @@
 name: page
 in: query
-description:  page number
+description: Page number (1-indexed)
 required: false
 schema:
-type: integer
-minimum: 1
-example: 1
+  type: integer
+  minimum: 1
+  example: 1
