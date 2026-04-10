@@ -1,0 +1,22 @@
+type: object
+required:
+  - page
+  - limit
+  - total
+properties:
+  page:
+    type: integer
+    minimum: 1
+    readOnly: true
+    example: 1
+  limit:
+    type: integer
+    minimum: 1
+    readOnly: true
+    example: 255
+    total:
+  type: integer
+  minimum: 0
+  readOnly: true
+  example: 243
+

@@ -20,6 +20,10 @@ components:
   schemas:
     Task:
       $ref: './docs/schema/task.yml'
+    Error:
+        $ref: './docs/schema/error.yml'
+    pagination:
+      $ref: './docs/pagination/pagination_schema.yml'
   securitySchemes:
     BearerAuth:
       type: http
