@@ -11,13 +11,14 @@ get:
             items:
               $ref: "../schema/task.yml"
     "400":
-      $ref: "../../openapi.yml#/components/responses/Error400"
+      $ref: "../openapi.yml#/components/responses/Error400"
     "401":
-      $ref: "../../openapi.yml#/components/responses/Error401"
+      $ref: "../openapi.yml#/components/responses/Error401"
     "403":
-      $ref: "../../openapi.yml#/components/responses/Error403"
+      $ref: "../openapi.yml#/components/responses/Error403"
     "404":
-      $ref: "../../openapi.yml#/components/responses/Error404"
+      $ref: "../openapi.yml#/components/responses/Error404"
+
 post:
   operationId: createTask
   summary: Create a new task
@@ -51,10 +52,11 @@ post:
           schema:
             $ref: "../schema/task.yml"
     "400":
-      $ref: "../../openapi.yml#/components/responses/Error400"
+      $ref: "../openapi.yml#/components/responses/Error400"
     "401":
-      $ref: "../../openapi.yml#/components/responses/Error401"
+      $ref: "../openapi.yml#/components/responses/Error401"
     "403":
-      $ref: "../../openapi.yml#/components/responses/Error403"
+      $ref: "../openapi.yml#/components/responses/Error403"
     "404":
-      $ref: "../../openapi.yml#/components/responses/Error404"
+      $ref: "../openapi.yml#/components/responses/Error404"
+
