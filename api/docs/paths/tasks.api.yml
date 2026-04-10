@@ -18,6 +18,7 @@ get:
       $ref: "../openapi.yml#/components/responses/Error403"
     "404":
       $ref: "../openapi.yml#/components/responses/Error404"
+
 post:
   operationId: createTask
   summary: Create a new task
@@ -58,3 +59,4 @@ post:
       $ref: "../openapi.yml#/components/responses/Error403"
     "404":
       $ref: "../openapi.yml#/components/responses/Error404"
+

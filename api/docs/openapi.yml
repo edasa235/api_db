@@ -21,16 +21,17 @@ paths:
 components:
   schemas:
     Task:
+
       $ref: ".//schema/task.yml"
   responses:
     Error400:
-      $ref: ".//schema/error.yml"
+      $ref: "./schema/error.yml"
     Error401:
-      $ref: ".//schema/error.yml"
+      $ref: "./schema/error.yml"
     Error403:
-      $ref: ".//schema/error.yml"
+      $ref: "./schema/error.yml"
     Error404:
-      $ref: ".//schema/error.yml"
+      $ref: "./schema/error.yml"
   securitySchemes:
     BearerAuth:
       type: http

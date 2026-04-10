@@ -57,7 +57,6 @@ put:
             $ref: "../schema/task.yml"
     "404":
       $ref: "../openapi.yml#/components/responses/Error404"
-
 delete:
   operationId: deleteTask
   summary: Delete a task by ID
