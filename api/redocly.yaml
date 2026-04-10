@@ -1,0 +1,77 @@
+extends:
+  - recommended
+apis:
+  main:
+    root: ./api/docs/openapi.yml
+rules:
+  rule/named-schemas-pascal-case:
+    severity: error
+    message: Schema component names must use PascalCase.
+    subject:
+      type: NamedSchemas
+    assertions:
+      casing: PascalCase
+
+  rule/named-responses-pascal-case:
+    severity: error
+    message: Response component names must use PascalCase.
+    subject:
+      type: NamedResponses
+    assertions:
+      casing: PascalCase
+
+  rule/named-parameters-pascal-case:
+    severity: error
+    message: Parameter component names must use PascalCase.
+    subject:
+      type: NamedParameters
+    assertions:
+      casing: PascalCase
+
+  rule/named-request-bodies-pascal-case:
+    severity: error
+    message: Request body component names must use PascalCase.
+    subject:
+      type: NamedRequestBodies
+    assertions:
+      casing: PascalCase
+
+  rule/named-headers-pascal-case:
+    severity: error
+    message: Header component names must use PascalCase.
+    subject:
+      type: NamedHeaders
+    assertions:
+      casing: PascalCase
+
+  rule/named-security-schemes-pascal-case:
+    severity: error
+    message: Security scheme component names must use PascalCase.
+    subject:
+      type: NamedSecuritySchemes
+    assertions:
+      casing: PascalCase
+
+  rule/named-examples-pascal-case:
+    severity: error
+    message: Example component names must use PascalCase.
+    subject:
+      type: NamedExamples
+    assertions:
+      casing: PascalCase
+
+  rule/named-links-pascal-case:
+    severity: error
+    message: Link component names must use PascalCase.
+    subject:
+      type: NamedLinks
+    assertions:
+      casing: PascalCase
+
+  rule/named-callbacks-pascal-case:
+    severity: error
+    message: Callback component names must use PascalCase.
+    subject:
+      type: NamedCallbacks
+    assertions:
+      casing: PascalCase
