@@ -2,22 +2,22 @@ get:
   operationId: getTasks
   summary: Get all tasks
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
           schema:
             type: array
             items:
-              $ref: '../schema/task.yml'
-    '400':
-      $ref: '../../openapi.yml#/components/responses/Error400'
-    '401':
-      $ref: '../../openapi.yml#/components/responses/Error401'
-    '403':
-      $ref: '../../openapi.yml#/components/responses/Error403'
-    '404':
-      $ref: '../../openapi.yml#/components/responses/Error404'
+              $ref: "../schema/task.yml"
+    "400":
+      $ref: "../openapi.yml#/components/responses/Error400"
+    "401":
+      $ref: "../openapi.yml#/components/responses/Error401"
+    "403":
+      $ref: "../openapi.yml#/components/responses/Error403"
+    "404":
+      $ref: "../openapi.yml#/components/responses/Error404"
 post:
   operationId: createTask
   summary: Create a new task
@@ -27,7 +27,7 @@ post:
       application/json:
         schema:
           type: object
-          required: [ title, status ]
+          required: [title, status]
           properties:
             title:
               type: string
@@ -37,23 +37,24 @@ post:
               example: "This is a new task."
             status:
               type: string
-              enum: [ BACKLOG, READY, IN_PROGRESS, IN_REVIEW, IN_TESTING, COMPLETED ]
+              enum:
+                [BACKLOG, READY, IN_PROGRESS, IN_REVIEW, IN_TESTING, COMPLETED]
               example: BACKLOG
             assignee_id:
               type: string
               example: "1"
   responses:
-    '201':
+    "201":
       description: Created
       content:
         application/json:
           schema:
-            $ref: '../schema/task.yml'
-    '400':
-      $ref: '../../openapi.yml#/components/responses/Error400'
-    '401':
-      $ref: '../../openapi.yml#/components/responses/Error401'
-    '403':
-      $ref: '../../openapi.yml#/components/responses/Error403'
-    '404':
-      $ref: '../../openapi.yml#/components/responses/Error404'
+            $ref: "../schema/task.yml"
+    "400":
+      $ref: "../openapi.yml#/components/responses/Error400"
+    "401":
+      $ref: "../openapi.yml#/components/responses/Error401"
+    "403":
+      $ref: "../openapi.yml#/components/responses/Error403"
+    "404":
+      $ref: "../openapi.yml#/components/responses/Error404"
