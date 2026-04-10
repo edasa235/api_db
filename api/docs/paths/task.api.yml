@@ -9,14 +9,14 @@ get:
         type: string
         example: "0ad58663-83ef-436c-841c-954c11cae6c2"
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
           schema:
-            $ref: '../schema/task.yml'
-    '404':
-      $ref: '../../openapi.yml#/components/responses/Error404'
+            $ref: "../schema/task.yml"
+    "404":
+      $ref: "../../openapi.yml#/components/responses/Error404"
 put:
   operationId: updateTask
   summary: Update a task by ID
@@ -42,21 +42,21 @@ put:
               example: "This is an updated task."
             status:
               type: string
-              enum: [ BACKLOG, READY, IN_PROGRESS, IN_REVIEW, IN_TESTING, COMPLETED ]
+              enum:
+                [BACKLOG, READY, IN_PROGRESS, IN_REVIEW, IN_TESTING, COMPLETED]
               example: READY
             assignee_id:
               type: string
               example: "2"
   responses:
-    '200':
+    "200":
       description: OK
       content:
         application/json:
           schema:
-            $ref: '../schema/task.yml'
-    '404':
-     $ref: '../../openapi.yml#/components/responses/Error404'
-
+            $ref: "../schema/task.yml"
+    "404":
+      $ref: "../../openapi.yml#/components/responses/Error404"
 
 delete:
   operationId: deleteTask
@@ -69,7 +69,7 @@ delete:
         type: string
         example: "0ad58663-83ef-436c-841c-954c11cae6c2"
   responses:
-    '204':
+    "204":
       description: No Content
-    '404':
-      $ref: '../../openapi.yml#/components/responses/Error404'
+    "404":
+      $ref: "../../openapi.yml#/components/responses/Error404"

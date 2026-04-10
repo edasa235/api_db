@@ -1,6 +1,6 @@
 name: limit
 in: query
-description:  number of items per page
+description: number of items per page
 required: false
 schema:
   type: integer

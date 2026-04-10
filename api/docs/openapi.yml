@@ -14,23 +14,23 @@ security:
 
 paths:
   /tasks:
-    $ref: './docs/paths/tasks.api.yml'
+    $ref: "./docs/paths/tasks.api.yml"
   /tasks/{id}:
-    $ref: './docs/paths/task.api.yml'
+    $ref: "./docs/paths/task.api.yml"
 
 components:
   schemas:
     Task:
-      $ref: './docs/schema/task.yml'
+      $ref: "./docs/schema/task.yml"
   responses:
     Error400:
-      $ref: './docs/schema/error.yml'
+      $ref: "./docs/schema/error.yml"
     Error401:
-      $ref: './docs/schema/error.yml'
+      $ref: "./docs/schema/error.yml"
     Error403:
-      $ref: './docs/schema/error.yml'
+      $ref: "./docs/schema/error.yml"
     Error404:
-      $ref: './docs/schema/error.yml'
+      $ref: "./docs/schema/error.yml"
   securitySchemes:
     BearerAuth:
       type: http
