@@ -21,7 +21,6 @@ paths:
 components:
   schemas:
     Task:
-
       $ref: ".//schema/task.yml"
   responses:
     Error400:

@@ -42,8 +42,7 @@ put:
               example: "This is an updated task."
             status:
               type: string
-              enum:
-                [BACKLOG, READY, IN_PROGRESS, IN_REVIEW, IN_TESTING, COMPLETED]
+              enum: [BACKLOG, READY, IN_PROGRESS, IN_REVIEW, IN_TESTING, COMPLETED]
               example: READY
             assignee_id:
               type: string

@@ -1,13 +1,11 @@
-create extension if not exists pgcrypto;
+CREATE EXTENSION if NOT EXISTS pgcrypto;
 
-create table users
-(
-    id         uuid        not null default gen_random_uuid(),
-    username   text        not null,
-    email      text        not null,
-    created_at timestamptz not null default current_timestamp,
-
-    constraint users_pkey primary key (id),
-    constraint users_email_unique unique (email),
-    constraint users_username_unique unique (username)
+CREATE TABLE users (
+  id UUID NOT NULL DEFAULT gen_random_uuid(),
+  username TEXT NOT NULL,
+  email TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT current_timestamp,
+  CONSTRAINT users_pkey PRIMARY KEY (id),
+  CONSTRAINT users_email_unique UNIQUE (email),
+  CONSTRAINT users_username_unique UNIQUE (username)
 );
