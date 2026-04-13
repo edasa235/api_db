@@ -6,18 +6,6 @@
   "engines": {
     "node": ">=24 <25"
   },
-  "workspaces": [
-    "api"
-  ],
-  "scripts": {
-    "format": "api/node_modules/.bin/prettier . --write",
-    "format:check": "api/node_modules/.bin/prettier . --check",
-    "openapi:lint": "npx redocly lint ./docs/openapi.yml",
-    "workspaces:lint": "npm run lint --workspaces",
-    "workspaces:build": "npm run build --workspaces",
-    "lint": "npm run openapi:lint && npm run workspaces:lint",
-    "build": "npm run workspaces:build"
-  },
   "devDependencies": {
     "@apidevtools/swagger-parser": "^12.1.0",
     "@eslint/js": "^9.39.4",

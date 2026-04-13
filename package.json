@@ -1,0 +1,22 @@
+{
+  "name": "api_db",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "api",
+    "db"
+  ],
+  "scripts": {
+    "db:write": "npm -w db run migrations:write",
+    "db:verify": "npm -w db run migrations:verify",
+    "api:lint": "npm -w api run openapi:lint",
+    "api:openapi:lint": "redocly lint",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "lint": "npm run api:lint && npm run api:openapi:lint"
+  },
+  "devDependencies": {
+    "prettier-plugin-sql": "^0.20.0"
+  }
+}
