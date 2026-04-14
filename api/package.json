@@ -6,6 +6,9 @@
   "engines": {
     "node": ">=24 <25"
   },
+  "dependencies": {
+    "express": "^5.2.1"
+  },
   "devDependencies": {
     "@apidevtools/swagger-parser": "^12.1.0",
     "@eslint/js": "^9.39.4",

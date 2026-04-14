@@ -3,10 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "workspaces": [
-    "api",
-    "db"
-  ],
   "scripts": {
     "db:write": "npm -w db run migrations:write",
     "db:verify": "npm -w db run migrations:verify",
@@ -19,5 +15,8 @@
   },
   "devDependencies": {
     "prettier-plugin-sql": "^0.20.0"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
   }
 }
