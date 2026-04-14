@@ -4,7 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "migrations:write": "node migration.mjs write",
-    "migrations:verify": "node migration.mjs verify"
+    "migrations:write": "node script/migration.mjs write",
+    "migrations:verify": "node script/migration.mjs verify",
+    "migrations:runfile": "node script/run_all_sql.mjs"
   }
 }

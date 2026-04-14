@@ -1,3 +1,5 @@
+version: "3.9"
+
 services:
   swagger-ui:
     image: swaggerapi/swagger-ui
@@ -7,3 +9,32 @@ services:
       SWAGGER_JSON: "/docs/openapi.yml"
     volumes:
       - ./api/docs:/docs:ro
+  db:
+    image: postgres:18.3-alpine
+    container_name: my-postgres
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  migrate:
+    image: postgres:18.3-alpine
+    depends_on:
+      - db
+    environment:
+      PGPASSWORD: mypassword
+    working_dir: /migrations
+    volumes:
+      - ./db/migrations:/migrations
+    entrypoint: >
+      sh -c "
+        sleep 3 &&
+        psql -h db -U myuser -d mydb -f run_all_migrations.sql
+      "
+
+volumes:
+  db_data:

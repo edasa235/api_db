@@ -10,6 +10,7 @@
   "scripts": {
     "db:write": "npm -w db run migrations:write",
     "db:verify": "npm -w db run migrations:verify",
+    "migrations:runfile": "npm -w db run migrations:runfile",
     "api:lint": "npm -w api run openapi:lint",
     "api:openapi:lint": "redocly lint",
     "format": "prettier . --write",
