@@ -1,6 +1,14 @@
 version: "3.9"
 
 services:
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    ports:
+      - "8080:8080"
+    environment:
+      SWAGGER_JSON: "/docs/openapi.yml"
+    volumes:
+      - ./api/docs:/docs:ro
   db:
     image: postgres:18.3-alpine
     container_name: my-postgres
