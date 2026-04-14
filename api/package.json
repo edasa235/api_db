@@ -7,7 +7,8 @@
     "node": ">=24 <25"
   },
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "cors": "^2.8.6"
   },
   "devDependencies": {
     "@apidevtools/swagger-parser": "^12.1.0",
