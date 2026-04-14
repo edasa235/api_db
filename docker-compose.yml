@@ -35,6 +35,10 @@ services:
         sleep 3 &&
         psql -h db -U myuser -d mydb -f run_all_migrations.sql
       "
-
+  api:
+    build:
+      context: ./api
+    ports:
+      - "3000:3000"
 volumes:
   db_data:
